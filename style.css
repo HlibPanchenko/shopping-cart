@@ -1,0 +1,284 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700,700italic);
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "PT Sans";
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 80px 0;
+}
+@media (max-width: 450px) {
+  .title {
+    padding: 50px 0;
+  }
+}
+.title__img {
+  max-width: 400px;
+}
+@media (max-width: 450px) {
+  .title__img {
+    max-width: 300px;
+  }
+}
+.title__text {
+  font-size: 18px;
+}
+@media (max-width: 450px) {
+  .title__text {
+    font-size: 14px;
+  }
+}
+
+.title-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content__container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.content__flex {
+  display: flex;
+  flex: 0 1 1000px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 10px 100px 10px;
+}
+@media (max-width: 960px) {
+  .content__flex {
+    justify-content: center;
+  }
+}
+.content__cards {
+  display: flex;
+  gap: 20px;
+  flex: 0 1 620px;
+  flex-wrap: wrap;
+  height: 100%;
+}
+@media (max-width: 638px) {
+  .content__cards {
+    justify-content: center;
+  }
+}
+.content__cart {
+  flex: 0 1 300px;
+}
+
+.card__item {
+  flex: 0 0 300px;
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.card__body h2 {
+  text-align: center;
+}
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.card__counter {
+  display: flex;
+}
+.card__price {
+  font-size: 18px;
+}
+.card__btn {
+  align-self: center;
+  width: 100%;
+  color: white;
+  background-color: #121010;
+  margin-bottom: 10px;
+}
+
+.counter {
+  font-size: 12px;
+  font-weight: 700;
+}
+.counter__minus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #99999b;
+  font-size: 16px;
+  height: 24px;
+  width: 22px;
+  cursor: pointer;
+}
+.counter__value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #99999b;
+  height: 24px;
+  width: 22px;
+}
+.counter__plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #99999b;
+  font-size: 16px;
+  height: 24px;
+  width: 22px;
+  cursor: pointer;
+}
+
+.cart__body {
+  color: white;
+  background-color: #121010;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: -8px 12px 37px 0px rgb(48, 44, 48);
+}
+.cart__total {
+  font-size: 18px;
+}
+.cart__totalPrice {
+  font-weight: 700;
+}
+.cart__order {
+  display: flex;
+  flex-direction: column;
+}
+.cart__make-order {
+  padding: 10px;
+  text-align: center;
+}
+.cart__group {
+  margin-bottom: 20px;
+}
+.cart__input {
+  font-weight: 700;
+}
+.cart__btn {
+  align-self: center;
+  width: 100%;
+  color: black;
+  background-color: white;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.empty-link {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding: 90px;
+  font-size: 20px;
+}
+
+.none {
+  display: none;
+}
+
+.item-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item-cart__info {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 80%;
+  border-bottom: 1px solid gray;
+}
+.item-cart__quantity-price {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.item-cart__counter {
+  display: flex;
+}/*# sourceMappingURL=style.css.map */

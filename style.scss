@@ -1,0 +1,344 @@
+// шрифты
+
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700,700italic);
+
+// обнуляющие стили
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "PT Sans";
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+///////////////////
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  // gap: 50px;
+  padding: 80px 0;
+  @media (max-width: 450px) {
+    padding: 50px 0;
+  }
+  &__img {
+    max-width: 400px;
+    // height: 200px;
+    // flex: 0 0 200px;
+    @media (max-width: 450px) {
+      max-width: 300px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    @media (max-width: 450px) {
+      font-size: 14px;
+    }
+  }
+}
+.title-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.content {
+  // display: flex;
+  // gap: 100px;
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__flex {
+    display: flex;
+    flex: 0 1 1000px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0px 10px 100px 10px;
+    @media (max-width: 960px) {
+      justify-content: center;
+      // flex-direction: column;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    gap: 20px;
+    flex: 0 1 620px;
+    flex-wrap: wrap;
+    height: 100%; // пофиксил чтобы размер колонки с товарами не менялся когда корзина становится больше
+    // justify-content: space-between;
+    @media (max-width: 638px) {
+      justify-content: center;
+    }
+  }
+
+  &__cart {
+    flex: 0 1 300px;
+    // border: 1px black solid;
+  }
+}
+.card {
+  &__item {
+    flex: 0 0 300px;
+    // border: 1px black solid;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    // padding: 0 40px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  &__counter {
+    display: flex;
+  }
+
+  &__price {
+    font-size: 18px;
+  }
+
+  &__btn {
+    // max-width: 70%;
+    align-self: center;
+    // padding: 0 62px;
+    width: 100%;
+    color: white;
+    background-color: rgba($color: #121010, $alpha: 1);
+    // background-color: rgba($color: #f9b94a, $alpha: 1);
+    // border: 2px solid black;
+    margin-bottom: 10px;
+  }
+}
+.counter {
+  // background-color: rgba($color: #4a96f9, $alpha: 1.0);
+  // color: white;
+  font-size: 12px;
+  font-weight: 700;
+  &__minus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba($color: #99999b, $alpha: 1);
+    // border: 2px solid rgba($color: #0a75ef, $alpha: 1.0);
+    font-size: 16px;
+    height: 24px;
+    width: 22px;
+    cursor: pointer;
+  }
+
+  &__value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba($color: #99999b, $alpha: 1);
+    // border: 2px solid rgba($color: #0a75ef, $alpha: 1.0);
+    height: 24px;
+    width: 22px;
+  }
+
+  &__plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba($color: #99999b, $alpha: 1);
+    // border: 2px solid rgba($color: #0a75ef, $alpha: 1.0);
+    font-size: 16px;
+    height: 24px;
+    width: 22px;
+    cursor: pointer;
+  }
+}
+.cart {
+  &__body {
+    color: white;
+    // border: 1px black solid;
+    background-color: rgba($color: #121010, $alpha: 1);
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    box-shadow: -8px 12px 37px 0px rgba(48, 44, 48, 1);
+  }
+
+  &__title {
+  }
+
+  &__list {
+  }
+
+  &__link {
+  }
+
+  &__total {
+    font-size: 18px;
+  }
+
+  &__totalPrice {
+    font-weight: 700;
+  }
+
+  &__order {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__make-order {
+    padding: 10px;
+    text-align: center;
+  }
+
+  &__group {
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    font-weight: 700;
+  }
+
+  &__btn {
+    align-self: center;
+    // padding: 0 62px;
+    width: 100%;
+    color: black;
+    background-color: rgba($color: #fff, $alpha: 1);
+    // background-color: rgba($color: #f9b94a, $alpha: 1);
+    // border: 2px solid black;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+}
+
+.empty-link {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  text-align: center;
+  border-bottom: 1px solid white;
+  // border-top: 1px solid white;
+  // display: inline-block;
+  // height: 50px;
+  padding: 90px;
+  // border: 1px solid rgba($color: #939292, $alpha: 1.0);
+  font-size: 20px;
+  // background-color: rgba($color: #e0dddd, $alpha: 0.3);
+}
+
+.none {
+  display: none;
+}
+
+.item-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__img {
+  }
+
+  &__info {
+    padding: 10px;
+    margin-bottom: 10px;
+    // display: block;
+    width: 80%;
+    border-bottom: 1px solid gray;
+  }
+
+  &__title {
+  }
+
+  &__quantity-price {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__counter {
+    display: flex;
+  }
+}
